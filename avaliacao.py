@@ -56,6 +56,7 @@ def adicionar_livro():
     ''', (titulo, autor, ano_publicacao, preco))
     conn.commit()
     print("Livro adicionado com sucesso!")
+    fazer_backup()
 
 def exibir_livros():
     """Exibe todos os livros cadastrados."""
@@ -75,6 +76,7 @@ def atualizar_preco():
     conn.commit()
     if cursor.rowcount > 0:
         print("Preço atualizado com sucesso!")
+        fazer_backup()
     else:
         print("Livro não encontrado.")
 
@@ -85,6 +87,7 @@ def remover_livro():
     conn.commit()
     if cursor.rowcount > 0:
         print("Livro removido com sucesso!")
+        fazer_backup()
     else:
         print("Livro não encontrado.")
 
@@ -123,6 +126,7 @@ def importar_de_csv():
             ''', row)
     conn.commit()
     print("Dados importados com sucesso!")
+    fazer_backup()
 
 def fazer_backup():
     """Faz um backup do banco de dados."""
